@@ -13,8 +13,8 @@ public class PlayerHealth : LivingEntity
     private AudioSource playerAudioPlayer; // 플레이어 소리 재생기
     private Animator playerAnimator; // 플레이어의 애니메이터
 
-    private PlayerMovement playerMovement; // 플레이어 움직임 컴포넌트
-    private PlayerShooter playerShooter; // 플레이어 슈터 컴포넌트
+    //private PlayerMovement playerMovement; // 플레이어 움직임 컴포넌트
+    //private PlayerShooter playerShooter; // 플레이어 슈터 컴포넌트
 
     private void Awake()
     {
@@ -22,8 +22,8 @@ public class PlayerHealth : LivingEntity
         playerAnimator = GetComponent<Animator>();
         playerAudioPlayer = GetComponent<AudioSource>();
 
-        playerMovement = GetComponent<PlayerMovement>();
-        playerShooter = GetComponent<PlayerShooter>();
+        //playerMovement = GetComponent<PlayerMovement>();
+        //playerShooter = GetComponent<PlayerShooter>();
     }
 
     protected override void OnEnable()
@@ -39,8 +39,8 @@ public class PlayerHealth : LivingEntity
         healthSlider.value = health;
 
         // 플레이어 조작을 받는 컴포넌트들 활성화
-        playerMovement.enabled = true;
-        playerShooter.enabled = true;
+        //playerMovement.enabled = true;
+        //playerShooter.enabled = true;
     }
 
     // 체력 회복
@@ -84,8 +84,8 @@ public class PlayerHealth : LivingEntity
         playerAnimator.SetTrigger("Die");
 
         // 플레이어 조작을 받는 컴포넌트들 비활성화
-        playerMovement.enabled = false;
-        playerShooter.enabled = false;
+        //playerMovement.enabled = false;
+        //playerShooter.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)

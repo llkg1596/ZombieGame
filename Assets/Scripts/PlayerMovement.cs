@@ -2,6 +2,7 @@
 
 // 플레이어 캐릭터를 사용자 입력에 따라 움직이는 스크립트
 public class PlayerMovement : MonoBehaviour {
+    
     public float moveSpeed = 5f; // 앞뒤 움직임의 속도
     public float rotateSpeed = 180f; // 좌우 회전 속도
 
@@ -46,4 +47,5 @@ public class PlayerMovement : MonoBehaviour {
         playerRigidbody.rotation = playerRigidbody.rotation * Quaternion.Euler(0, turn, 0f);
 
     }
+    
 }
