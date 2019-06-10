@@ -27,8 +27,9 @@ public class AttackAIRange : MonoBehaviour
     {
         if (c.tag == "Player")
         {
-            control.monsterMoveAI += moveToPl;
-            control.monsterMoveAI -= moveToOb;
+            control.targetEntity = c.gameObject;
+            //control.monsterMoveAI += moveToPl;
+            //control.monsterMoveAI -= moveToOb;
         }
     }
 
@@ -36,13 +37,15 @@ public class AttackAIRange : MonoBehaviour
     {
         if (c.tag == "Player")
         {
-            control.monsterMoveAI += moveToOb;
-            control.monsterMoveAI -= moveToPl;
+            control.targetEntity = PlayManager.Instance.GetTheObject();
+            //control.monsterMoveAI += moveToOb;
+            //control.monsterMoveAI -= moveToPl;
         }
     }
     void MoveToPlayer()
     {
         Vector3 vec = pl.transform.position - transform.position;
+
         vec.Normalize();
 
         control.enemyAnimator.SetBool("HasTarget", true);
@@ -53,6 +56,7 @@ public class AttackAIRange : MonoBehaviour
     void MoveToObject()
     {
         Vector3 vec = ob.transform.position - transform.position;
+
         vec.Normalize();
 
         control.enemyAnimator.SetBool("HasTarget", true);

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentMonster: {fileID: 0}
+  control: {fileID: 0}
 --- !u!65 &4858011737489161937
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -130,11 +131,11 @@ GameObject:
   - component: {fileID: 7366721705895000169}
   - component: {fileID: 7366721705903986665}
   - component: {fileID: 7366721705894601358}
-  - component: {fileID: 7366721705894601359}
-  - component: {fileID: 7366721705894601392}
   - component: {fileID: 8099798989858310842}
   - component: {fileID: 33366080078162608}
   - component: {fileID: -8321186755251776899}
+  - component: {fileID: 2375464102579526790}
+  - component: {fileID: 3159179819358732857}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -275,33 +276,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &7366721705894601359
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7366721705894503817}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 1, z: 0.25}
---- !u!136 &7366721705894601392
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7366721705894503817}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.2
-  m_Height: 1.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!114 &8099798989858310842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4215921e0b9d4e14c8776b238098d9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   enemyAnimator: {fileID: 0}
 --- !u!54 &-8321186755251776899
 Rigidbody:
@@ -344,6 +319,42 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &2375464102579526790
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7366721705894503817}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 1.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.75, z: 0}
+--- !u!195 &3159179819358732857
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7366721705894503817}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7366721705894503821
 GameObject:
   m_ObjectHideFlags: 0

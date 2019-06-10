@@ -33,6 +33,8 @@ public class PlayerControl : Control
         if (shoot_joystick.Horizontal != 0 && shoot_joystick.Vertical != 0)
         {
             Vector3 vec = new Vector3(shoot_joystick.Horizontal, 0, shoot_joystick.Vertical);
+
+
             playerData.Main_Weapon.Shoot(vec);
             transform.rotation = Quaternion.LookRotation(vec, Vector3.up);
         }

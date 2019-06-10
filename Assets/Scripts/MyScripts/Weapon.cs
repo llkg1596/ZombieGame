@@ -18,9 +18,15 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void Shoot(Vector3 vec)
     {
+        if (attackCool > 0f || cur_bullet <= 0f)
+            return;
+
         SetCool();
 
         cur_bullet -= 1f;
+
+        GameObject temp = Instantiate(bullet, PlayManager.Instance.GetData().transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
+        temp.GetComponent<Bullet>().Init_Bullet(vec, damage, bulletSpd);
     }
     
     public void SetCool()

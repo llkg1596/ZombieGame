@@ -6,7 +6,7 @@ public class Rifle : Weapon
 {
     public override void Init_Weapon()
     {
-        bullet = Resources.Load("Prefabs/Bullet_Pistol") as GameObject;
+        bullet = PlayManager.Instance.bullet;
 
         attackSpd = 10f;
         bulletSpd = 20f;
@@ -17,12 +17,7 @@ public class Rifle : Weapon
 
     public override void Shoot(Vector3 vec)
     {
-        if (attackCool > 0f || cur_bullet <= 0f)
-            return;
-
         base.Shoot(vec);
 
-        GameObject temp = Instantiate(bullet, PlayManager.Instance.GetData().transform.position, Quaternion.identity);
-        temp.GetComponent<Bullet>().Init_Bullet(vec, damage, bulletSpd);
     }
 }

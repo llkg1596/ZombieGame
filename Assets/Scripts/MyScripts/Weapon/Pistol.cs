@@ -16,12 +16,6 @@ public class Pistol : Weapon
 
     public override void Shoot(Vector3 vec)
     {
-        if (attackCool > 0f || cur_bullet <= 0f)
-            return;
-
         base.Shoot(vec);
-
-        GameObject temp = Instantiate(bullet, PlayManager.Instance.GetData().transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
-        temp.GetComponent<Bullet>().Init_Bullet(vec, damage, bulletSpd);
     }
 }
