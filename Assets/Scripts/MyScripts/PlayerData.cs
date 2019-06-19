@@ -48,6 +48,27 @@ public class PlayerData : CharacterData
     private void Update()
     {
         PlayUIManager.Instance.UpdateBullet(Main_Weapon);
+        Collider[] c = Physics.OverlapBox(transform.position, new Vector3(1f, 1f, 1f) * 0.5f);
+        bool alreadyGetted = false;
+
+        foreach (var col in c)
+        {
+            if (col.gameObject.tag == "Box" && alreadyGetted == false)
+            {
+                Drop_Weapon = col.gameObject.GetComponent<DropBox>().weapon;
+                PlayUIManager.Instance.ChangeWeaponUI_Sub(Drop_Weapon);
+                alreadyGetted = true;
+            }
+        }
+        if (alreadyGetted == false)
+        {
+            if (sub_Weapon == null)
+                return;
+
+            Drop_Weapon = null;
+            PlayUIManager.Instance.ChangeWeaponUI_Sub(Sub_Weapon);
+        }
+
     }
 
     public void ChangeWeapon()

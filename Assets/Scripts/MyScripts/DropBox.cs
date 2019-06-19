@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DropBox : MonoBehaviour
 {
-    Weapon weapon;
+    public Weapon weapon;
     Sprite[] gunSprite;
 
     public void Init_DropBox()

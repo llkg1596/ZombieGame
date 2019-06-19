@@ -32,7 +32,7 @@ public class PlayerHealth : LivingEntity
         base.OnEnable();
 
         // 체력 슬라이더 활성화
-        healthSlider.gameObject.SetActive(true);
+        //healthSlider.gameObject.SetActive(true);
         // 체력 슬라이더의 최대값을 기본 체력값으로 변경
         healthSlider.maxValue = startingHealth;
         // 체력 슬라이더의 값을 현재 체력값으로 변경
