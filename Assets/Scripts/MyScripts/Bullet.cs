@@ -13,11 +13,12 @@ public class Bullet : MonoBehaviour
     {
         vec = _vec.normalized;
         damage = _damage;
-        spd = _spd;
+        //spd = _spd;
 
-        StartCoroutine(Move());
+        //StartCoroutine(Move());
+        transform.rotation = Quaternion.LookRotation(vec, Vector3.up);
     }
-
+    /*
     IEnumerator Move()
     {
         float timer = 0f;
@@ -37,7 +38,7 @@ public class Bullet : MonoBehaviour
 
         DestroyCall();
     }
-
+    */
     public void DestroyCall()
     {
         StopAllCoroutines();

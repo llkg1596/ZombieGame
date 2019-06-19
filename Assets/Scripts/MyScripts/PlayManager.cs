@@ -41,4 +41,20 @@ public class PlayManager : MonoBehaviour
         DropBox dB = Instantiate(dropBox, pos, Quaternion.identity).GetComponent<DropBox>();
         dB.Init_DropBox();
     }
+
+    public Sprite[] gunSprites;
+
+    public Sprite LoadGunSprite(Weapons weapon)
+    {
+        switch (weapon)
+        {
+            case Weapons.PISTOL:
+                return gunSprites[0];
+            case Weapons.RIFLE:
+                return gunSprites[1];
+        }
+
+        throw new System.Exception("Invalid Weapon!");
+
+    }
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class DropBox : MonoBehaviour
 {
     Weapon weapon;
-    
+    Sprite[] gunSprite;
+
     public void Init_DropBox()
     {
         //드랍 박스 안에 무슨 무기 들었는지 초기화

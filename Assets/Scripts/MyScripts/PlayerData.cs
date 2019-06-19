@@ -11,7 +11,7 @@ public class PlayerData : CharacterData
         set
         {
             main_Weapon = value;
-            //그 외 UI 적인 부분
+            PlayUIManager.Instance.ChangeWeaponUI_Main(main_Weapon);
         }
     }
     private Weapon sub_Weapon;
@@ -21,7 +21,16 @@ public class PlayerData : CharacterData
         set
         {
             sub_Weapon = value;
-            //그 외 UI 적인 부분
+            PlayUIManager.Instance.ChangeWeaponUI_Sub(sub_Weapon);
+        }
+    }
+    private Weapon drop_Weapon;
+    public Weapon Drop_Weapon
+    {
+        get { return drop_Weapon; }
+        set
+        {
+            drop_Weapon = value;
         }
     }
 
@@ -31,11 +40,18 @@ public class PlayerData : CharacterData
         Main_Weapon = new GameObject("Pistol").AddComponent<Pistol>();
         Main_Weapon.transform.parent = gameObject.transform;
         Main_Weapon.Init_Weapon();
+        PlayUIManager.Instance.ChangeWeaponUI_Main(Main_Weapon);
+    }
+
+    //플레이어 hp ui, 드랍박스 아이템을 체인지 창에 띄워주는 거
+
+    private void Update()
+    {
+        PlayUIManager.Instance.UpdateBullet(Main_Weapon);
     }
 
     public void ChangeWeapon()
     {
-
         Collider[] c = Physics.OverlapBox(transform.position, new Vector3(1f, 1f, 1f) * 0.5f);
         //box와 겹친 경우 -> sub / drop 간 교환
 

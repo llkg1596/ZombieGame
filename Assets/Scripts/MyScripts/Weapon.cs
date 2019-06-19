@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Weapons
+{
+    PISTOL, RIFLE
+}
+
 public abstract class Weapon : MonoBehaviour
 {
     public GameObject bullet;
+    public Sprite sprite;
 
     public float max_bullet;
     public float cur_bullet;
@@ -39,5 +45,4 @@ public abstract class Weapon : MonoBehaviour
         if (attackCool > 0f)
             attackCool -= Time.deltaTime;
     }
-
 }

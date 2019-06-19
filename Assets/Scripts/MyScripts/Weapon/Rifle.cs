@@ -13,6 +13,7 @@ public class Rifle : Weapon
         damage = 1f;
         max_bullet = 30f;
         cur_bullet = max_bullet;
+        sprite = PlayManager.Instance.LoadGunSprite(Weapons.RIFLE);
     }
 
     public override void Shoot(Vector3 vec)
